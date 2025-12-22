@@ -1,4 +1,5 @@
-import data from '../assets/data.json'; 
+import data from '../assets/data.json';
+import { useState } from 'react';
 
 function randompick() {
     const randomIndex = Math.floor(Math.random() * data.length);
@@ -6,7 +7,11 @@ function randompick() {
 }
 
 function DataDisplay() {
-    const row = randompick();
+    const [row, setRow] = useState(() => randompick());
+
+    const changeData = () => {
+        setRow(randompick());
+    };
 
     return (
         <div className="data-display">
@@ -35,6 +40,7 @@ function DataDisplay() {
                     </tr>
                 </tbody>
             </table>
+            <button onClick={changeData}>Changer les données</button>
         </div>
     );
 }
