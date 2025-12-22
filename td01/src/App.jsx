@@ -11,6 +11,7 @@ import Footer from './components/Footer.jsx'
 
 
 
+
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
       <Header/>
       <MainContent/>
       <Footer/>
+
     </>
   )
 }

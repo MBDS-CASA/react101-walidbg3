@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+.data-display table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.data-display td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-display td:first-child {
+  font-weight: bold;
+  width: 30%;
+}

@@ -1,3 +1,4 @@
+import DataDisplay from './DataDisplay.jsx'
 function MainContent() {
     const date = new Date();
     const Jour = date.getDate();
@@ -7,10 +8,13 @@ function MainContent() {
     const Minute = date.getMinutes();
     const Second = date.getSeconds();
   return (
-
+    <>
     <div>
       <p>Bonjour, on est le {Jour}, {Mois}, {Annee} et il est {Heure}:{Minute}:{Second}</p>
     </div>
+
+    <DataDisplay/>
+    </>
   );
 }
 export default MainContent;
