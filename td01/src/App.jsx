@@ -13,6 +13,15 @@ function Header() {
   );
 }
 
+function MainContent() {
+  return (
+    <div>
+      <p>Ici, nous afficherons des informations interessantes :)</p>
+    </div>
+  );
+}
+
+
 
 
 function App() {
@@ -20,6 +29,7 @@ function App() {
   return (
     <>
       <Header />
+      <MainContent />
     </>
   )
 }
