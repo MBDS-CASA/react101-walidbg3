@@ -22,6 +22,14 @@ function MainContent() {
 }
 
 
+function Footer(){
+  return (
+    <footer>
+      <p>Tous droits réservés - Boughedda Walid</p>
+    </footer>
+  );
+}
+
 
 
 function App() {
@@ -30,6 +38,7 @@ function App() {
     <>
       <Header />
       <MainContent />
+      <Footer />
     </>
   )
 }
