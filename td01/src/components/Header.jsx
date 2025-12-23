@@ -1,25 +1,17 @@
+import { NavLink } from "react-router-dom"; // Change import
 import mbdslogo from '../assets/mbds.jpg'
 
 function Header() {
-  const handleMenuClick = (item) => {
-    alert(`Vous avez cliqué sur: ${item}`);
-  };
-
   return (
     <div className="header">
       <div className="menu">
-        <button onClick={() => handleMenuClick('Notes')}>Notes</button>
-        <button onClick={() => handleMenuClick('Etudiants')}>Etudiants</button>
-        <button onClick={() => handleMenuClick('Matières')}>Matières</button>
-        <button onClick={() => handleMenuClick('A propos')}>A propos</button>
-      </div>
-      <div className="header-content">
-        <img src={mbdslogo} className="logo" alt="MBDS logo" />
-        <h1>Introduction à React</h1>
-        <h2>A la découverte des premières notions de React</h2>
+        <NavLink to="/">Accueil</NavLink>
+        <NavLink to="/note">Notes</NavLink>
+        <NavLink to="/etudiants">Etudiants</NavLink>
+        <NavLink to="/matieres">Matières</NavLink>
+        <NavLink to="/apropos">A propos</NavLink>
       </div>
     </div>
   );
 }
-
 export default Header;

@@ -1,20 +1,14 @@
-import DataDisplay from './DataDisplay.jsx'
-function MainContent() {
-    const date = new Date();
-    const Jour = date.getDate();
-    const Mois = date.getMonth() + 1;
-    const Annee = date.getFullYear();
-    const Heure = date.getHours();
-    const Minute = date.getMinutes();
-    const Second = date.getSeconds();
-  return (
-    <>
-    <div>
-      <p>Bonjour, on est le {Jour}, {Mois}, {Annee} et il est {Heure}:{Minute}:{Second}</p>
-    </div>
 
-    <DataDisplay/>
-    </>
+
+function MainContent() {
+  return (
+    <div className="dashboard-container">
+      <div className="welcome-message">
+        <h1>Welcome to EduManager</h1>
+        <p>Select a category from the sidebar to view data.</p>
+      </div>
+    </div>
   );
 }
+
 export default MainContent;

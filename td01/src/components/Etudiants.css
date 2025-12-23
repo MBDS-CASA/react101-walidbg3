@@ -1,0 +1,4 @@
+/* Inherits table styles from global or reuses shared classes */
+.etudiants-container {
+    padding-bottom: var(--spacing-xl);
+}

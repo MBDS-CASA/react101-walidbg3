@@ -1,0 +1,70 @@
+:root {
+  /* Minimalist Palette - Clean Light Theme */
+  --primary-color: #000000;
+  /* Pure Black for primary actions */
+  --primary-hover: #333333;
+  --secondary-color: #666666;
+  /* Gray for accents */
+
+  --background-dark: #ffffff;
+  /* White background */
+  --background-card: #ffffff;
+  /* White cards */
+  --background-light: #fafafa;
+  /* Very light gray for subtle contrast */
+
+  --text-main: #171717;
+  /* Neutral 900 */
+  --text-muted: #737373;
+  /* Neutral 500 */
+
+  /* Functional Colors - Muted/Pastel */
+  --success-color: #059669;
+  /* Emerald 600 */
+  --warning-color: #d97706;
+  /* Amber 600 */
+  --danger-color: #dc2626;
+  /* Red 600 */
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  /* Increased whitespace */
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Radii - Subtle rounded corners */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-full: 9999px;
+
+  /* Borders - Used instead of shadows */
+  --border-color: #e5e5e5;
+  /* Neutral 200 */
+  --border-width: 1px;
+
+  /* Shadows - Removed or extremely subtle */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  /* Very subtle only for hover */
+  --shadow-glow: none;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+}

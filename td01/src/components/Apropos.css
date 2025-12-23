@@ -1,0 +1,16 @@
+.apropos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.apropos-content h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.apropos-content p {
+    color: var(--text-muted);
+}
