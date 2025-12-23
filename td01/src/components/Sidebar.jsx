@@ -15,17 +15,17 @@ function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/etudiants" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink to="/students" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
               Students
             </NavLink>
           </li>
           <li>
-            <NavLink to="/matieres" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink to="/courses" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
               Subjects
             </NavLink>
           </li>
           <li>
-            <NavLink to="/note" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink to="/grades" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
               Grades
             </NavLink>
           </li>

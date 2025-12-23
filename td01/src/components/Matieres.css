@@ -1,8 +1,0 @@
-/* Inherits table styles from global variables or shared structure */
-.text-success {
-    color: var(--success-color);
-}
-
-.text-danger {
-    color: var(--danger-color);
-}

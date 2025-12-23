@@ -1,6 +1,13 @@
-import data from '../assets/data.json';
+import data from '../data/data.json';
 import { useMemo } from 'react';
-
+import { Link } from 'react-router-dom';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function Matieres() {
     // Extract unique courses from data
@@ -28,24 +35,35 @@ function Matieres() {
                 <h1 className="page-title">Subjects</h1>
             </div>
 
-            <div className="table-container">
-                <table className="custom-table">
-                    <thead>
-                        <tr>
-                            <th>Subject Name</th>
-                            <th>Student Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {courses.map(course => (
-                            <tr key={course.name}>
-                                <td>{course.name}</td>
-                                <td>{course.count}</td>
-                            </tr>
+            <TableContainer component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Subject Name</TableCell>
+                            <TableCell>Student Count</TableCell>
+                            <TableCell>Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {courses.map((course) => (
+                            <TableRow
+                                key={course.name}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {course.name}
+                                </TableCell>
+                                <TableCell>{course.count}</TableCell>
+                                <TableCell>
+                                    <Link to={`/courses/${course.name}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                                        View
+                                    </Link>
+                                </TableCell>
+                            </TableRow>
                         ))}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     );
 }

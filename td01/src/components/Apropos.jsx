@@ -1,12 +1,10 @@
-
-
 function Apropos() {
     return (
         <div className="apropos-container">
             <div className="apropos-content">
-                <h1>About</h1>
-                <p>Student Management System v1.0</p>
-                <p>© 2025 MBDS</p>
+                <h1>About This Project</h1>
+                <p>Ce projet est réalisé par BOUGHEDDA Walid</p>
+                <p>MBDS - React TD</p>
             </div>
         </div>
     );

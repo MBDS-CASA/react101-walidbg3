@@ -1,6 +1,15 @@
-import data from '../assets/data.json';
+import data from '../data/data.json';
 import { useMemo, useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 function Etudiants() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -26,29 +35,50 @@ function Etudiants() {
         <div className="etudiants-container">
             <div className="page-header">
                 <h1 className="page-title">Students</h1>
-
             </div>
 
-            <div className="table-container">
-                <table className="custom-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredStudents.map(student => (
-                            <tr key={student.id}>
-                                <td className="id-col">{student.id}</td>
-                                <td>{student.firstname}</td>
-                                <td>{student.lastname}</td>
-                            </tr>
+            <Box sx={{ mb: 2 }}>
+                <TextField
+                    label="Search Students"
+                    variant="outlined"
+                    size="small"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    fullWidth
+                />
+            </Box>
+
+            <TableContainer component={Paper}>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>ID</TableCell>
+                            <TableCell>First Name</TableCell>
+                            <TableCell>Last Name</TableCell>
+                            <TableCell>Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {filteredStudents.map((student) => (
+                            <TableRow
+                                key={student.id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {student.id}
+                                </TableCell>
+                                <TableCell>{student.firstname}</TableCell>
+                                <TableCell>{student.lastname}</TableCell>
+                                <TableCell>
+                                    <Link to={`/students/${student.id}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                                        View
+                                    </Link>
+                                </TableCell>
+                            </TableRow>
                         ))}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     );
 }

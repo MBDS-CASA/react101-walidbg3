@@ -6,6 +6,9 @@ import Etudiants from "./Etudiants.jsx";
 import Matieres from "./Matieres.jsx";
 import Apropos from "./Apropos.jsx";
 import Footer from "./Footer.jsx";
+import StudentDetail from "./StudentDetail.jsx";
+import CourseDetail from "./CourseDetail.jsx";
+import GradeDetail from "./GradeDetail.jsx";
 
 // Minimal Layout Wrapper
 const Layout = ({ children }) => (
@@ -26,15 +29,25 @@ function AppRouter() {
             <Layout>
                 <Routes>
                     <Route path="/" element={<MainContent />} />
-                    <Route path="/note" element={<Notes />} />
-                    <Route path="/etudiants" element={<Etudiants />} />
-                    <Route path="/matieres" element={<Matieres />} />
+
+                    {/* Students Routes */}
+                    <Route path="/students" element={<Etudiants />} />
+                    <Route path="/students/:id" element={<StudentDetail />} />
+
+                    {/* Courses Routes */}
+                    <Route path="/courses" element={<Matieres />} />
+                    <Route path="/courses/:id" element={<CourseDetail />} />
+
+                    {/* Grades Routes */}
+                    <Route path="/grades" element={<Notes />} />
+                    <Route path="/grades/:id" element={<GradeDetail />} />
+
                     <Route path="/apropos" element={<Apropos />} />
+
+                    {/* Legacy redirects can be handled here if needed, or we just cut over cleanly */}
                 </Routes>
             </Layout>
         </BrowserRouter>
-
-
     );
 }
 
