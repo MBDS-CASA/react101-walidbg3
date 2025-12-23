@@ -1,13 +1,7 @@
 import data from '../data/data.json';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import DataTable from './DataTable';
 
 function Matieres() {
     // Extract unique courses from data
@@ -29,41 +23,32 @@ function Matieres() {
         return Array.from(uniqueCourses.values());
     }, []);
 
+    const columns = [
+        { id: 'name', label: 'Subject Name' },
+        { id: 'count', label: 'Student Count' },
+        {
+            id: 'actions',
+            label: 'Actions',
+            disableSort: true,
+            render: (row) => (
+                <Link to={`/courses/${row.name}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                    View
+                </Link>
+            )
+        }
+    ];
+
     return (
         <div className="matieres-container">
             <div className="page-header">
                 <h1 className="page-title">Subjects</h1>
             </div>
 
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Subject Name</TableCell>
-                            <TableCell>Student Count</TableCell>
-                            <TableCell>Actions</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {courses.map((course) => (
-                            <TableRow
-                                key={course.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {course.name}
-                                </TableCell>
-                                <TableCell>{course.count}</TableCell>
-                                <TableCell>
-                                    <Link to={`/courses/${course.name}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
-                                        View
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <DataTable
+                rows={courses}
+                columns={columns}
+                searchPlaceholder="Search subjects..."
+            />
         </div>
     );
 }

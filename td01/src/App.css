@@ -231,12 +231,32 @@ h2 {
 /* =========================================
    4. Main Content / Dashboard
    ========================================= */
+/* =========================================
+   4. Main Content / Dashboard
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn var(--transition-normal) forwards;
+}
+
 .dashboard-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80vh;
     text-align: center;
+    animation: fadeIn var(--transition-normal) forwards;
 }
 
 .welcome-message h1 {
@@ -252,8 +272,16 @@ h2 {
 /* =========================================
    5. Etudiants View
    ========================================= */
-.etudiants-container {
+/* =========================================
+   5. Etudiants View
+   ========================================= */
+.etudiants-container,
+.matieres-container,
+.notes-container,
+.apropos-container,
+.container {
     padding-bottom: var(--spacing-xl);
+    animation: fadeIn var(--transition-normal) forwards;
 }
 
 .page-header {

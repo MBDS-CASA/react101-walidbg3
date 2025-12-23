@@ -1,14 +1,38 @@
 import data from '../data/data.json';
 import { Link } from 'react-router-dom';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { useMemo } from 'react';
+import DataTable from './DataTable';
 
 function Notes() {
+    // Prepare data for table, flattening the object where necessary
+    const rows = useMemo(() => {
+        return data.map(item => ({
+            unique_id: item.unique_id,
+            studentName: `${item.student.firstname} ${item.student.lastname}`,
+            course: item.course,
+            date: item.date,
+            grade: item.grade
+        }));
+    }, []);
+
+    const columns = [
+        { id: 'unique_id', label: 'ID' },
+        { id: 'studentName', label: 'Student Name' },
+        { id: 'course', label: 'Course' },
+        { id: 'date', label: 'Date' },
+        { id: 'grade', label: 'Grade' },
+        {
+            id: 'actions',
+            label: 'Actions',
+            disableSort: true,
+            render: (row) => (
+                <Link to={`/grades/${row.unique_id}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                    View
+                </Link>
+            )
+        }
+    ];
+
     return (
         <div className="notes-container">
             <div className="page-header">
@@ -18,43 +42,11 @@ function Notes() {
                 </div>
             </div>
 
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>Student Name</TableCell>
-                            <TableCell>Course</TableCell>
-                            <TableCell>Date</TableCell>
-                            <TableCell>Grade</TableCell>
-                            <TableCell>Actions</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {data.map((item) => (
-                            <TableRow
-                                key={item.unique_id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    #{item.unique_id}
-                                </TableCell>
-                                <TableCell>
-                                    {item.student.firstname} {item.student.lastname}
-                                </TableCell>
-                                <TableCell>{item.course}</TableCell>
-                                <TableCell>{item.date}</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>{item.grade}</TableCell>
-                                <TableCell>
-                                    <Link to={`/grades/${item.unique_id}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
-                                        View
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <DataTable
+                rows={rows}
+                columns={columns}
+                searchPlaceholder="Search grades..."
+            />
         </div>
     );
 }
